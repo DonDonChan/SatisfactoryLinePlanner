@@ -1,0 +1,8 @@
+assembler	組立機
+constructor	製作機
+foundry	鋳造炉
+manufacturer	製造機
+miner	採掘機
+oilpump	石油汲上機
+oilrefinary	石油精製機
+smelter	精錬炉

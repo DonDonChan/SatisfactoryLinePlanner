@@ -1,0 +1,26 @@
+﻿<Window x:Class="SatisfactoryLinePlanner.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SatisfactoryLinePlanner"
+        mc:Ignorable="d"
+        Title="SatisfactoryLinePlanner v0.001" Height="700" Width="1000">
+
+    <Grid Background="#cccccc">
+        <TabControl x:Name="MainTab"  Background="#cccccc">
+
+            <TabItem x:Name="OverallTab" Header="全体情報">
+                <TextBlock Text="No Available" FontSize="30"/>
+            </TabItem>
+
+            <TabItem x:Name="ProductionTab" Header="生産設定" IsSelected="True">
+                <local:ProductionTab/>
+            </TabItem>
+
+            <TabItem x:Name="GeneratorTab" Header="発電機">
+                <TextBlock Text="No Available" FontSize="30"/>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

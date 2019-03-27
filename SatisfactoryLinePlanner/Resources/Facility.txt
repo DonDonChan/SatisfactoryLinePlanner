@@ -1,0 +1,15 @@
+assemblermk1	‘g—§‹@Mk.1	15	100	assembler
+assemblermk2	‘g—§‹@Mk.2	0	1	assembler
+constructormk1	»ì‹@Mk.1	4	100	constructor
+constructormk2	»ì‹@Mk.2	0	1	constructor
+foundrymk1	’’‘¢˜FMk.1	18	100	foundry
+foundrymk2	’’‘¢˜FMk.2	38	1	foundry
+manufacturermk1	»‘¢‹@Mk.1	55	100	manufacturer
+manufacturermk2	»‘¢‹@Mk.2	0	1	manufacturer
+minermk1	ÌŒ@‹@Mk.1	5	100	miner
+minermk2	ÌŒ@‹@Mk.2	12	200	miner
+minermk3	ÌŒ@‹@Mk.3	20	1	miner
+oilpump	Î–û‹‚ã‹@	20	100	oilpump
+oilrefinary	Î–û¸»‹@	50	100	oilrefinary
+smeltermk1	¸˜B˜FMk.1	4	100	smelter
+smeltermk2	¸˜B˜FMk.2	8	1	smelter
