@@ -15,7 +15,7 @@ namespace SatisfactoryLinePlanner
             //InitializeDB();
         }
 
-        private void InitializeDB()
+        public void InitializeDB()
         {
             DropTable();
             CreateTable();

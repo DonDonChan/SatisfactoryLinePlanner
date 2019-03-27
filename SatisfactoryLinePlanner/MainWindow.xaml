@@ -21,6 +21,12 @@
             <TabItem x:Name="GeneratorTab" Header="発電機">
                 <TextBlock Text="No Available" FontSize="30"/>
             </TabItem>
+
+            <TabItem x:Name="DataBaseTab" Header="データベース">
+                <StackPanel>
+                    <Button x:Name="DBInitButton" Content="データベース初期化"/>
+                </StackPanel>
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>
