@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SatisfactoryLinePlanner.Database;
+using SatisfactoryLinePlanner.ProductionBlockTab;
+using System;
 using System.Windows;
 
 namespace SatisfactoryLinePlanner
@@ -12,23 +14,18 @@ namespace SatisfactoryLinePlanner
         {
             InitializeComponent();
 
-            string dbFilePath = "./SatisfactoryData.db";
+            ProductionBlockTabController productBlockTabController = new ProductionBlockTabController(this);
 
-            if (!System.IO.File.Exists(dbFilePath))
-            {
-                MessageBox.Show("データベースを作成します。");
-                DatabaseOperation databaseOperation = new DatabaseOperation();
-                databaseOperation.InitializeDB();
-            }
+            ProductionTab.Content = productBlockTabController.BlockTab;
 
             DBInitButton.Click += new RoutedEventHandler(DBInitButtonClicked);
         }
 
         private void DBInitButtonClicked(object sender, EventArgs e)
         {
-            DatabaseOperation databaseOperation = new DatabaseOperation();
+            DBInitializer dbInitializer = new DBInitializer();
 
-            databaseOperation.InitializeDB();
+            dbInitializer.InitializeAndInsert();
         }
     }
 }

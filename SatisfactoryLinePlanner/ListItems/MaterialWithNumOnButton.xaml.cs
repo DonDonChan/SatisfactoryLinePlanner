@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SatisfactoryLinePlanner
+namespace SatisfactoryLinePlanner.ListItems
 {
     /// <summary>
-    /// RecipeListItem.xaml の相互作用ロジック
+    /// MaterialWithNumOnButton.xaml の相互作用ロジック
     /// </summary>
-    public partial class ProductionRecipeListItem : UserControl
+    public partial class MaterialWithNumOnButton : UserControl
     {
-        public ProductionRecipeListItem()
+        public MaterialWithNumOnButton()
         {
             InitializeComponent();
         }

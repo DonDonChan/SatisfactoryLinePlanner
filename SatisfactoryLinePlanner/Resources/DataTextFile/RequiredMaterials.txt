@@ -8,7 +8,7 @@ defaultscrew	ironrod	1
 defaultwire	copperingot	1
 defaultcable	wire	2
 defaultsteelpipe	steelingot	1
-defaultsteelbeam	steelingt	3
+defaultsteelbeam	steelingot	3
 defaultsteelingot	ironore	3
 defaultsteelingot	coal	3
 defaultrubber	crudeoil	4

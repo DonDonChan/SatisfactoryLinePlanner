@@ -1,25 +1,25 @@
-﻿<UserControl x:Class="SatisfactoryLinePlanner.RequestMaterialListItem"
+﻿<UserControl x:Class="SatisfactoryLinePlanner.ListItems.MaterialWithNumOnButton"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:SatisfactoryLinePlanner"
+             xmlns:local="clr-namespace:SatisfactoryLinePlanner.ListItems"
              mc:Ignorable="d">
     
-    <Grid Margin="10, 5">
-        <Button x:Name="RequestRecipeSelect" BorderThickness="0" Background="#cccccc">
-            <Grid>
+    <Grid>
+        <Button x:Name="Button_RequestRecipeSelect" BorderThickness="0" Background="#cccccc">
+            <Grid Margin="5, 2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="0">
-                    <TextBlock x:Name="TextBlockMaterialName" Text="素材1" TextAlignment="Center"/>
+                    <TextBlock x:Name="TextBlock_Name" TextAlignment="Center"/>
                 </Grid>
 
                 <Grid Grid.Row="1">
-                    <TextBlock x:Name="TextBlockMaterialValue" Text="1000" TextAlignment="Center"/>
+                    <TextBlock x:Name="TextBlock_Number" TextAlignment="Center"/>
                 </Grid>
             </Grid>
         </Button>

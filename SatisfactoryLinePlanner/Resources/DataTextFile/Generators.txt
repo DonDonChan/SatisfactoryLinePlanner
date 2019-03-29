@@ -1,0 +1,5 @@
+bioburner	バイオマス発電機	20	generator
+coalgenerator	石炭発電機	50	generator
+fuelgenerator	燃料発電機	150	generator
+geothermalgenerator	地熱発電機	200	generator
+nuclearpowerplant	原子力発電機	1000	generator

@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SatisfactoryLinePlanner
+namespace SatisfactoryLinePlanner.ListItems
 {
     /// <summary>
-    /// RequestMaterialListItem.xaml の相互作用ロジック
+    /// MaterialWithNum.xaml の相互作用ロジック
     /// </summary>
-    public partial class RequestMaterialListItem : UserControl
+    public partial class MaterialWithNum : UserControl
     {
-        public RequestMaterialListItem()
+        public MaterialWithNum()
         {
             InitializeComponent();
         }

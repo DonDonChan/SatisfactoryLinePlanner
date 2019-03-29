@@ -6,3 +6,4 @@ miner	採掘機
 oilpump	石油汲上機
 oilrefinary	石油精製機
 smelter	精錬炉
+generator	発電機

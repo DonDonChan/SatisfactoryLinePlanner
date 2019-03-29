@@ -1,13 +1,13 @@
-﻿<UserControl x:Class="SatisfactoryLinePlanner.ProductionRecipeListItem"
+﻿<UserControl x:Class="SatisfactoryLinePlanner.ProductionBlockTab.ProductionRecipeListItem"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:SatisfactoryLinePlanner"
+             xmlns:local="clr-namespace:SatisfactoryLinePlanner.ProductionBlockTab"
              mc:Ignorable="d" >
-
+    
     <Border BorderBrush="#555555" BorderThickness="0, 0, 0, 1" Padding="0, 2">
-        <Grid>
+        <Grid x:Name="Test">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="auto"/>
@@ -24,20 +24,20 @@
             </Grid.ColumnDefinitions>
 
             <Grid Grid.Column="0">
-                <Button x:Name="RecipeListItemUp" Content="↑" Background="#88ccff"/>
+                <Button x:Name="Button_UpItem" Content="↑" Background="#88ccff"/>
             </Grid>
 
             <Grid Grid.Column="1" Margin="3, 0 ,0 ,0">
-                <Button x:Name="RecipeListItemDown" Content="↓" Background="#88ccff"/>
+                <Button x:Name="Button_DownItem" Content="↓" Background="#88ccff"/>
             </Grid>
 
             <Grid Grid.Column="2">
-                <TextBlock x:Name="RecipeName" TextAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock x:Name="TextBlock_Recipe" TextAlignment="Center" VerticalAlignment="Center"/>
             </Grid>
 
             <Grid Grid.Column="3">
                 <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock x:Name="Power"/>
+                    <TextBlock x:Name="TextBlock_PowerUsage"/>
                     <TextBlock Text="MW"/>
                 </WrapPanel>
             </Grid>
@@ -49,17 +49,17 @@
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="0">
-                    <TextBlock x:Name="FacilityName" TextAlignment="Center"/>
+                    <TextBlock x:Name="TextBlock_Building" TextAlignment="Center"/>
                 </Grid>
 
                 <Grid Grid.Row="1">
-                    <TextBlock x:Name="FacilityValue" TextAlignment="Center"/>
+                    <TextBlock x:Name="TextBlock_NumOfBuilding" TextAlignment="Center"/>
                 </Grid>
             </Grid>
 
             <Grid Grid.Column="5">
                 <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock x:Name="OverCloack"/>
+                    <TextBlock x:Name="TextBlock_Overclock"/>
                     <TextBlock Text="%"/>
                 </WrapPanel>
             </Grid>
@@ -71,11 +71,11 @@
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="0">
-                    <TextBlock x:Name="ProductMaterialName" TextAlignment="Center"/>
+                    <TextBlock x:Name="TextBlock_ProductMaterial" TextAlignment="Center"/>
                 </Grid>
 
                 <Grid Grid.Row="1">
-                    <TextBlock x:Name="ProductMaterialValue" TextAlignment="Center"/>
+                    <TextBlock x:Name="TextBlock_NumOfProductMaterial" TextAlignment="Center"/>
                 </Grid>
             </Grid>
 
@@ -86,11 +86,11 @@
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="0">
-                    <TextBlock x:Name="RequestMaterialName1" TextAlignment="Center"/>
+                    <TextBlock x:Name="TextBlock_RequestMaterial1" TextAlignment="Center"/>
                 </Grid>
 
                 <Grid Grid.Row="1">
-                    <TextBlock x:Name="RequestMaterialValue1" TextAlignment="Center"/>
+                    <TextBlock x:Name="TextBlock_NumOfRequestMaterial1" TextAlignment="Center"/>
                 </Grid>
             </Grid>
 
@@ -101,11 +101,11 @@
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="0">
-                    <TextBlock x:Name="RequestMaterialName2" TextAlignment="Center"/>
+                    <TextBlock x:Name="TextBlock_RequestMaterial2" TextAlignment="Center"/>
                 </Grid>
 
                 <Grid Grid.Row="1">
-                    <TextBlock x:Name="RequestMaterialValue2" TextAlignment="Center"/>
+                    <TextBlock x:Name="TextBlock_NumOfRequestMaterial2" TextAlignment="Center"/>
                 </Grid>
             </Grid>
 
@@ -116,11 +116,11 @@
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="0">
-                    <TextBlock x:Name="RequestMaterialName3" TextAlignment="Center"/>
+                    <TextBlock x:Name="TextBlock_RequestMaterial3" TextAlignment="Center"/>
                 </Grid>
 
                 <Grid Grid.Row="1">
-                    <TextBlock x:Name="RequestMaterialValue3" TextAlignment="Center"/>
+                    <TextBlock x:Name="TextBlock_NumOfRequestMaterial3" TextAlignment="Center"/>
                 </Grid>
             </Grid>
 
@@ -131,16 +131,16 @@
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="0">
-                    <TextBlock x:Name="RequestMaterialName4" TextAlignment="Center"/>
+                    <TextBlock x:Name="TextBlock_RequestMaterial4" TextAlignment="Center"/>
                 </Grid>
 
                 <Grid Grid.Row="1">
-                    <TextBlock x:Name="RequestMaterialValue4" TextAlignment="Center"/>
+                    <TextBlock x:Name="TextBlock_NumOfRequestMaterial4" TextAlignment="Center"/>
                 </Grid>
             </Grid>
 
             <Grid Grid.Column="11">
-                <Button x:Name="RecipeListItemDelete" Content="X" Background="#ff4444"/>
+                <Button x:Name="Button_DeleteItem" Content="X" Background="#ff4444" Width="15"/>
             </Grid>
 
             <TextBlock x:Name="Position" Visibility="Collapsed"/>

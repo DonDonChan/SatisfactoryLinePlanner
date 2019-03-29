@@ -15,7 +15,7 @@
             </TabItem>
 
             <TabItem x:Name="ProductionTab" Header="生産設定" IsSelected="True">
-                <local:ProductionTab/>
+                
             </TabItem>
 
             <TabItem x:Name="GeneratorTab" Header="発電機">

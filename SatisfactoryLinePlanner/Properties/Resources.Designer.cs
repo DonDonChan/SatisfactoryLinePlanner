@@ -61,29 +61,6 @@ namespace SatisfactoryLinePlanner.Properties {
         }
         
         /// <summary>
-        ///   assemblermk1	組立機Mk.1	15	100	assembler
-        ///assemblermk2	組立機Mk.2	0	1	assembler
-        ///constructormk1	製作機Mk.1	4	100	constructor
-        ///constructormk2	製作機Mk.2	0	1	constructor
-        ///foundrymk1	鋳造炉Mk.1	18	100	foundry
-        ///foundrymk2	鋳造炉Mk.2	38	1	foundry
-        ///manufacturermk1	製造機Mk.1	55	100	manufacturer
-        ///manufacturermk2	製造機Mk.2	0	1	manufacturer
-        ///minermk1	採掘機Mk.1	5	100	miner
-        ///minermk2	採掘機Mk.2	12	200	miner
-        ///minermk3	採掘機Mk.3	20	1	miner
-        ///oilpump	石油汲上機	20	100	oilpump
-        ///oilrefinary	石油精製機	50	100	oilrefinary
-        ///smeltermk1	精錬炉Mk.1	4	100	smelter
-        ///smelterm [残りの文字列は切り詰められました]&quot;; に類似しているローカライズされた文字列を検索します。
-        /// </summary>
-        internal static string Facility {
-            get {
-                return ResourceManager.GetString("Facility", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   assembler	組立機
         ///constructor	製作機
         ///foundry	鋳造炉
@@ -92,25 +69,43 @@ namespace SatisfactoryLinePlanner.Properties {
         ///oilpump	石油汲上機
         ///oilrefinary	石油精製機
         ///smelter	精錬炉
-        /// に類似しているローカライズされた文字列を検索します。
+        ///generator	発電機 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string FacilityType {
+        internal static string Buildings {
             get {
-                return ResourceManager.GetString("FacilityType", resourceCulture);
+                return ResourceManager.GetString("Buildings", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   bioburner	バイオマス発電機	20
-        ///coalgenerator	石炭発電機	50
-        ///fuelgenerator	燃料発電機	150
-        ///geothermalgenerator	地熱発電機	200
-        ///nuclearpowerplant	原子力発電機	1000
+        ///   bioburner	バイオマス発電機	20	generator
+        ///coalgenerator	石炭発電機	50	generator
+        ///fuelgenerator	燃料発電機	150	generator
+        ///geothermalgenerator	地熱発電機	200	generator
+        ///nuclearpowerplant	原子力発電機	1000	generator
         /// に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string Generator {
+        internal static string Generators {
             get {
-                return ResourceManager.GetString("Generator", resourceCulture);
+                return ResourceManager.GetString("Generators", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   alternativescrew1	代替ネジ	screw	constructor	8	12
+        ///defaultailimitter	A.I.リミッター	ailimitter	assembler	12	1
+        ///defaultcable	ケーブル	cable	constructor	4	1
+        ///defaultcateriumingot	カテリウムインゴット	cateriumingot	smelter	4	1
+        ///defaultcircuitboard	回路基盤	circuitboard	assembler	12	1
+        ///defaultcomputer	コンピューター	computer	manufacturer	32	1
+        ///defaultconcrete	コンクリート	concrete	constructor	4	1
+        ///defaultcopperingot	銅インゴット	copperingot	smelter	2	1
+        ///defaultencasedindustrialbeam	梱包済工業用梁	encasedindustrialbeam	assembler	15	1
+        ///defaultfuel	燃料	fuel	oilrefina [残りの文字列は切り詰められました]&quot;; に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string MaterialRecipes {
+            get {
+                return ResourceManager.GetString("MaterialRecipes", resourceCulture);
             }
         }
         
@@ -141,27 +136,32 @@ namespace SatisfactoryLinePlanner.Properties {
         ///plastic	プラスチック	0
         ///quickwi [残りの文字列は切り詰められました]&quot;; に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string MaterialData {
+        internal static string Materials {
             get {
-                return ResourceManager.GetString("MaterialData", resourceCulture);
+                return ResourceManager.GetString("Materials", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   alternativescrew1	代替ネジ	screw	constructor	8	12
-        ///defaultailimitter	A.I.リミッター	ailimitter	assembler	12	1
-        ///defaultcable	ケーブル	cable	constructor	4	1
-        ///defaultcateriumingot	カテリウムインゴット	cateriumingot	smelter	4	1
-        ///defaultcircuitboard	回路基盤	circuitboard	assembler	12	1
-        ///defaultcomputer	コンピューター	computer	manufacturer	32	1
-        ///defaultconcrete	コンクリート	concrete	constructor	4	1
-        ///defaultcopperingot	銅インゴット	copperingot	smelter	2	1
-        ///defaultencasedindustrialbeam	梱包済工業用梁	encasedindustrialbeam	assembler	15	1
-        ///defaultfuel	燃料	fuel	oilrefina [残りの文字列は切り詰められました]&quot;; に類似しているローカライズされた文字列を検索します。
+        ///   assemblermk1	組立機Mk.1	15	100	assembler
+        ///assemblermk2	組立機Mk.2	0	1	assembler
+        ///constructormk1	製作機Mk.1	4	100	constructor
+        ///constructormk2	製作機Mk.2	0	1	constructor
+        ///foundrymk1	鋳造炉Mk.1	18	100	foundry
+        ///foundrymk2	鋳造炉Mk.2	38	1	foundry
+        ///manufacturermk1	製造機Mk.1	55	100	manufacturer
+        ///manufacturermk2	製造機Mk.2	0	1	manufacturer
+        ///minermk1	採掘機Mk.1	5	100	miner
+        ///minermk2	採掘機Mk.2	12	200	miner
+        ///minermk3	採掘機Mk.3	20	1	miner
+        ///oilpump	石油汲上機	20	100	oilpump
+        ///oilrefinary	石油精製機	50	100	oilrefinary
+        ///smeltermk1	精錬炉Mk.1	4	100	smelter
+        ///smelterm [残りの文字列は切り詰められました]&quot;; に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string MaterialRecipe {
+        internal static string ProductionBuildings {
             get {
-                return ResourceManager.GetString("MaterialRecipe", resourceCulture);
+                return ResourceManager.GetString("ProductionBuildings", resourceCulture);
             }
         }
         
@@ -185,9 +185,9 @@ namespace SatisfactoryLinePlanner.Properties {
         ///defaultreinforcedironplate	ironplate	4
         ///defaultreinforcedironpla [残りの文字列は切り詰められました]&quot;; に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string RequiredMaterialOfUnitProduction {
+        internal static string RequiredMaterials {
             get {
-                return ResourceManager.GetString("RequiredMaterialOfUnitProduction", resourceCulture);
+                return ResourceManager.GetString("RequiredMaterials", resourceCulture);
             }
         }
     }

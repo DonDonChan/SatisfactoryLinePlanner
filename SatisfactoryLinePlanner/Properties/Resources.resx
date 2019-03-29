@@ -118,22 +118,22 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Facility" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Facility.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;shift_jis</value>
+  <data name="Buildings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DataTextFile\Buildings.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;shift_jis</value>
   </data>
-  <data name="FacilityType" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FacilityType.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;shift_jis</value>
+  <data name="Generators" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DataTextFile\Generators.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;shift_jis</value>
   </data>
-  <data name="Generator" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Generator.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;shift_jis</value>
+  <data name="MaterialRecipes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DataTextFile\MaterialRecipes.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;shift_jis</value>
   </data>
-  <data name="MaterialData" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MaterialData.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;shift_jis</value>
+  <data name="Materials" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DataTextFile\Materials.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;shift_jis</value>
   </data>
-  <data name="MaterialRecipe" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MaterialRecipe.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;shift_jis</value>
+  <data name="ProductionBuildings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DataTextFile\ProductionBuildings.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;shift_jis</value>
   </data>
-  <data name="RequiredMaterialOfUnitProduction" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RequiredMaterialOfUnitProduction.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;shift_jis</value>
+  <data name="RequiredMaterials" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DataTextFile\RequiredMaterials.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;shift_jis</value>
   </data>
 </root>
