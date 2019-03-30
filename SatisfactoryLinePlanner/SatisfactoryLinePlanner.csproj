@@ -121,9 +121,6 @@
     <Compile Include="Database\DBDrop.cs" />
     <Compile Include="Database\DBInsert.cs" />
     <Compile Include="Database\DBSelect.cs" />
-    <Compile Include="ListItems\MaterialWithNum.xaml.cs">
-      <DependentUpon>MaterialWithNum.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ListItems\MaterialWithNumOnButton.xaml.cs">
       <DependentUpon>MaterialWithNumOnButton.xaml</DependentUpon>
     </Compile>
@@ -151,10 +148,6 @@
     </Compile>
     <Compile Include="RecipeSelect\RecipeSelectWindowController.cs" />
     <Compile Include="Beans\RequiredMaterial.cs" />
-    <Page Include="ListItems\MaterialWithNum.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="ListItems\MaterialWithNumOnButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -188,14 +181,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Styles\MainWindowStyle.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Styles\NegativeButtonStyle.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Styles\PositiveButtonStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
