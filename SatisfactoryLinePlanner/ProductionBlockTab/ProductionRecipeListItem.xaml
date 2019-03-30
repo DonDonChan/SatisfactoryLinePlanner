@@ -4,9 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SatisfactoryLinePlanner.ProductionBlockTab"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" >
     
-    <Border BorderBrush="#555555" BorderThickness="0, 0, 0, 1" Padding="0, 2">
+    <Border BorderBrush="#555555" BorderThickness="0, 0, 0, 1" Padding="5, 3">
         <Grid x:Name="Test">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
@@ -24,21 +25,25 @@
             </Grid.ColumnDefinitions>
 
             <Grid Grid.Column="0">
-                <Button x:Name="Button_UpItem" Content="↑" Background="#88ccff"/>
+                <Button x:Name="Button_UpItem" Style="{StaticResource MaterialDesignRaisedLightButton}">
+                    <materialDesign:PackIcon Kind="ArrowUpBold" />
+                </Button>
             </Grid>
 
             <Grid Grid.Column="1" Margin="3, 0 ,0 ,0">
-                <Button x:Name="Button_DownItem" Content="↓" Background="#88ccff"/>
+                <Button x:Name="Button_DownItem" Style="{StaticResource MaterialDesignRaisedLightButton}">
+                    <materialDesign:PackIcon Kind="ArrowDownBold" />
+                </Button>
             </Grid>
 
             <Grid Grid.Column="2">
-                <TextBlock x:Name="TextBlock_Recipe" TextAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock x:Name="TextBlock_Recipe" TextAlignment="Center" VerticalAlignment="Center" Foreground="White" Opacity="0.8"/>
             </Grid>
 
             <Grid Grid.Column="3">
                 <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock x:Name="TextBlock_PowerUsage"/>
-                    <TextBlock Text="MW"/>
+                    <TextBlock x:Name="TextBlock_PowerUsage" Foreground="White" Opacity="0.8"/>
+                    <TextBlock Text="MW" Foreground="White" Opacity="0.8"/>
                 </WrapPanel>
             </Grid>
 
@@ -49,18 +54,18 @@
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="0">
-                    <TextBlock x:Name="TextBlock_Building" TextAlignment="Center"/>
+                    <TextBlock x:Name="TextBlock_Building" TextAlignment="Center" Foreground="White" Opacity="0.8"/>
                 </Grid>
 
                 <Grid Grid.Row="1">
-                    <TextBlock x:Name="TextBlock_NumOfBuilding" TextAlignment="Center"/>
+                    <TextBlock x:Name="TextBlock_NumOfBuilding" TextAlignment="Center" Foreground="White" Opacity="0.8"/>
                 </Grid>
             </Grid>
 
             <Grid Grid.Column="5">
                 <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock x:Name="TextBlock_Overclock"/>
-                    <TextBlock Text="%"/>
+                    <TextBlock x:Name="TextBlock_Overclock" Foreground="White" Opacity="0.8"/>
+                    <TextBlock Text="%" Foreground="White" Opacity="0.8"/>
                 </WrapPanel>
             </Grid>
 
@@ -71,11 +76,11 @@
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="0">
-                    <TextBlock x:Name="TextBlock_ProductMaterial" TextAlignment="Center"/>
+                    <TextBlock x:Name="TextBlock_ProductMaterial" TextAlignment="Center" Foreground="White" Opacity="0.8"/>
                 </Grid>
 
                 <Grid Grid.Row="1">
-                    <TextBlock x:Name="TextBlock_NumOfProductMaterial" TextAlignment="Center"/>
+                    <TextBlock x:Name="TextBlock_NumOfProductMaterial" TextAlignment="Center" Foreground="White" Opacity="0.8"/>
                 </Grid>
             </Grid>
 
@@ -86,11 +91,11 @@
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="0">
-                    <TextBlock x:Name="TextBlock_RequestMaterial1" TextAlignment="Center"/>
+                    <TextBlock x:Name="TextBlock_RequestMaterial1" TextAlignment="Center" Foreground="White" Opacity="0.8"/>
                 </Grid>
 
                 <Grid Grid.Row="1">
-                    <TextBlock x:Name="TextBlock_NumOfRequestMaterial1" TextAlignment="Center"/>
+                    <TextBlock x:Name="TextBlock_NumOfRequestMaterial1" TextAlignment="Center" Foreground="White" Opacity="0.8"/>
                 </Grid>
             </Grid>
 
@@ -101,11 +106,11 @@
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="0">
-                    <TextBlock x:Name="TextBlock_RequestMaterial2" TextAlignment="Center"/>
+                    <TextBlock x:Name="TextBlock_RequestMaterial2" TextAlignment="Center" Foreground="White" Opacity="0.8"/>
                 </Grid>
 
                 <Grid Grid.Row="1">
-                    <TextBlock x:Name="TextBlock_NumOfRequestMaterial2" TextAlignment="Center"/>
+                    <TextBlock x:Name="TextBlock_NumOfRequestMaterial2" TextAlignment="Center" Foreground="White" Opacity="0.8"/>
                 </Grid>
             </Grid>
 
@@ -116,11 +121,11 @@
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="0">
-                    <TextBlock x:Name="TextBlock_RequestMaterial3" TextAlignment="Center"/>
+                    <TextBlock x:Name="TextBlock_RequestMaterial3" TextAlignment="Center" Foreground="White" Opacity="0.8"/>
                 </Grid>
 
                 <Grid Grid.Row="1">
-                    <TextBlock x:Name="TextBlock_NumOfRequestMaterial3" TextAlignment="Center"/>
+                    <TextBlock x:Name="TextBlock_NumOfRequestMaterial3" TextAlignment="Center" Foreground="White" Opacity="0.8"/>
                 </Grid>
             </Grid>
 
@@ -131,16 +136,18 @@
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="0">
-                    <TextBlock x:Name="TextBlock_RequestMaterial4" TextAlignment="Center"/>
+                    <TextBlock x:Name="TextBlock_RequestMaterial4" TextAlignment="Center" Foreground="White" Opacity="0.8"/>
                 </Grid>
 
                 <Grid Grid.Row="1">
-                    <TextBlock x:Name="TextBlock_NumOfRequestMaterial4" TextAlignment="Center"/>
+                    <TextBlock x:Name="TextBlock_NumOfRequestMaterial4" TextAlignment="Center" Foreground="White" Opacity="0.8"/>
                 </Grid>
             </Grid>
 
             <Grid Grid.Column="11">
-                <Button x:Name="Button_DeleteItem" Content="X" Background="#ff4444" Width="15"/>
+                <Button x:Name="Button_DeleteItem" Style="{StaticResource MaterialDesignRaisedLightButton}" Background="#ff4444" BorderBrush="#cc3333">
+                    <materialDesign:PackIcon Kind="Close" />
+                </Button>
             </Grid>
 
             <TextBlock x:Name="Position" Visibility="Collapsed"/>

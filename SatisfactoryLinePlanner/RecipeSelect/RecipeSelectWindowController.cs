@@ -121,7 +121,7 @@ namespace SatisfactoryLinePlanner.RecipeSelect
             productionRecipe.RequiredMaterials.Clear();
 
             List<string[]> requiredMaterials = dbSelect.SelectData("RequiredMaterials RM", "LEFT JOIN Materials M ON RM.RequiredMaterialId = M.MaterialId", new string[] { "RequiredMaterialId", "Name", "NumberOfRequiredMaterial" }, "RecipeId = @RECIPEID", new List<string[]>() { new string[] { "@RECIPEID", productionRecipe.RecipeId } }, null);
-            foreach(string[] required in requiredMaterials)
+            foreach (string[] required in requiredMaterials)
             {
                 RequiredMaterial requiredMaterial = new RequiredMaterial();
                 requiredMaterial.MaterialId = required[0];
@@ -130,6 +130,11 @@ namespace SatisfactoryLinePlanner.RecipeSelect
 
                 productionRecipe.RequiredMaterials.Add(requiredMaterial);
             }
+
+            recipeSelectWindow.BorderAttentionOnRecipeSelect(false);
+
+            // 要求素材を表示させる
+            RequiedMaterialsChange();
 
             // 施設リストを取得して入れる
             SetBuildingListToCombox(productionRecipe.BuildingToUse.TypeId);
@@ -171,6 +176,8 @@ namespace SatisfactoryLinePlanner.RecipeSelect
 
                 textBox.Text = Math.Round(productValue, 2).ToString();
                 productionRecipe.NumberOfMaterialProduction = Math.Round(productValue, 2);  // 少数2位まで残す
+
+                recipeSelectWindow.BorderAttentionOnNumberOfProduction(false);
 
                 ProductionStatesChanged();
             }
@@ -277,23 +284,59 @@ namespace SatisfactoryLinePlanner.RecipeSelect
         }
 
         /// <summary>
+        /// 要求素材の表示
+        /// </summary>
+        public void RequiedMaterialsChange()
+        {
+            List<string[]> materials = new List<string[]>();
+
+            int i = 0;
+            foreach (RequiredMaterial material in productionRecipe.RequiredMaterials)
+            {
+                string[] required = {
+                    material.Name,
+                    material.NumberOfRequired.ToString(),
+                    productionRecipe.ActualRequiredNumberOfMaterialsPerMin[i].ToString()
+                };
+                i++;
+
+                materials.Add(required);
+            }
+
+            recipeSelectWindow.SetRequiredMaterialsToPanel(materials);
+        }
+
+        /// <summary>
         /// 確定ボタンが押された
         /// </summary>
         public void ConfirmButtonClicked(object sender, EventArgs e)
         {
-            if (productionRecipe.NumberOfMaterialProduction > 0)
+            // レシピ選択のチェック
+            if (productionRecipe.RecipeName != null && !productionRecipe.RecipeName.Equals(""))
             {
-                if (productionRecipe.BuildingToUse.NumberOfBuildings > 0)
-                {
-                    recipeDone = true;
-
-                    recipeSelectWindow.Close();
-                }
+                recipeDone = true;
+            }
+            else
+            {
+                recipeDone = false;
+                recipeSelectWindow.BorderAttentionOnRecipeSelect(true);
             }
 
-            if (!recipeDone)
+            // 生産数設定のチェック
+            if (productionRecipe.NumberOfMaterialProduction > 0)
             {
-                recipeSelectWindow.ShowMessageInvalidNumberOfProduction();
+
+                recipeDone = true;
+            }
+            else
+            {
+                recipeDone = false;
+                recipeSelectWindow.BorderAttentionOnNumberOfProduction(true);
+            }
+
+            if (recipeDone)
+            {
+                recipeSelectWindow.Close();
             }
         }
 
@@ -319,6 +362,9 @@ namespace SatisfactoryLinePlanner.RecipeSelect
             double requestFacilityValue = Math.Round(productionRecipe.NumberOfMaterialProduction / productionRecipe.ActualNumberOfProductionPerMin, 2); // 必要な施設数
             productionRecipe.BuildingToUse.NumberOfBuildings = requestFacilityValue;
             recipeSelectWindow.TextBlock_RequiredNumberOfBuilding.Text = requestFacilityValue.ToString();
+
+            // 要求素材を表示させる
+            RequiedMaterialsChange();
         }
 
         /// <summary>

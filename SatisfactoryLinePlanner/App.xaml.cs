@@ -13,5 +13,18 @@ namespace SatisfactoryLinePlanner
     /// </summary>
     public partial class App : Application
     {
+        [System.STAThreadAttribute()]
+        static public void Main()
+        {
+            var app = new App();
+            app.InitializeComponent();
+            app.Startup += App_Startup;
+            app.Run();
+        }
+
+        private static void App_Startup(object sender, StartupEventArgs e)
+        {
+            MainWindowController mainWindowController = new MainWindowController();
+        }
     }
 }

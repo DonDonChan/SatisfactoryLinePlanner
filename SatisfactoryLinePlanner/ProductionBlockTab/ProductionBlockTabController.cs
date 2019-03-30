@@ -230,12 +230,13 @@ namespace SatisfactoryLinePlanner.ProductionBlockTab
             foreach(ProductionRecipe recipe in reversed)
             {
                 int i = 0;
+                // 要求素材から検索して同名があれば数値だけ追加、なければ名前と追加
                 foreach (RequiredMaterial requiredMaterial in recipe.RequiredMaterials)
                 {
                     bool flag = false;
                     foreach (string[] material in materialList)
                     {
-                        if (material[0].Equals(requiredMaterial.Name))
+                        if (material[0].Equals(requiredMaterial.Name) && !material[1].Equals("0"))
                         {
                             flag = true;
                             material[1] = Math.Round(double.Parse(material[1]) - recipe.ActualRequiredNumberOfMaterialsPerMin[i], 2).ToString();
@@ -249,11 +250,34 @@ namespace SatisfactoryLinePlanner.ProductionBlockTab
                     i++;
                 }
 
-                materialList.Add(new string[] { recipe.ProductionMaterial.Name, recipe.NumberOfMaterialProduction.ToString() });
+                i = 0;
+                bool exist = false;
+                foreach(string[] production in materialList)
+                {
+                    if (production[0].Equals(recipe.ProductionMaterial.Name) && double.TryParse(production[1], out double pro) && pro > 0)
+                    {
+                        exist = true;
+                        break;
+                    }
+                    i++;
+                }
+
+                if (exist)
+                {
+                    Console.WriteLine("Name:" + materialList[i][0]);
+                    Console.WriteLine("Number:" + materialList[i][1]);
+                    Console.WriteLine("Production:" + recipe.NumberOfMaterialProduction);
+                    Console.WriteLine("Result:" + double.Parse(materialList[i][1]) + recipe.NumberOfMaterialProduction);
+                    materialList[i][1] = (double.Parse(materialList[i][1]) + recipe.NumberOfMaterialProduction).ToString();
+                }
+                else
+                {
+                    materialList.Add(new string[] { recipe.ProductionMaterial.Name, recipe.NumberOfMaterialProduction.ToString() });
+                }
             }
 
             // 表示用のリストとか作成
-            List<MaterialWithNum> productionList = new List<MaterialWithNum>();
+            List<MaterialWithNumOnButton> productionList = new List<MaterialWithNumOnButton>();
             List<MaterialWithNumOnButton> requiredList = new List<MaterialWithNumOnButton>();
 
             foreach(string[] value in materialList)
@@ -288,7 +312,7 @@ namespace SatisfactoryLinePlanner.ProductionBlockTab
                 }
                 else if (double.Parse(value[1]) > 0)
                 {
-                    MaterialWithNum material = new MaterialWithNum();
+                    MaterialWithNumOnButton material = new MaterialWithNumOnButton();
 
                     // 名前と数値の設定
                     material.TextBlock_Name.Text = value[0];

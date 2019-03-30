@@ -6,18 +6,18 @@
              xmlns:local="clr-namespace:SatisfactoryLinePlanner.ListItems"
              mc:Ignorable="d" >
     
-    <Grid Margin="5,2">
+    <Grid Margin="5, 3, 5, 3">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <TextBlock x:Name="TextBlock_Name" TextAlignment="Center"/>
+            <TextBlock x:Name="TextBlock_Name" TextAlignment="Center" Foreground="White" Opacity="0.6"/>
         </Grid>
 
         <Grid Grid.Row="1">
-            <TextBlock x:Name="TextBlock_Number" TextAlignment="Center"/>
+            <TextBlock x:Name="TextBlock_Number" TextAlignment="Center" Foreground="White" Opacity="0.6"/>
         </Grid>
     </Grid>
 </UserControl>

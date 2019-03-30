@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace SatisfactoryLinePlanner.RecipeSelect
 {
@@ -13,6 +14,9 @@ namespace SatisfactoryLinePlanner.RecipeSelect
         public RecipeSelectWindow()
         {
             InitializeComponent();
+
+            // ウィンドウのどこでも移動可能にする
+            MouseLeftButtonDown += (sender, e) => this.DragMove();
         }
 
         /// <summary>
@@ -106,6 +110,58 @@ namespace SatisfactoryLinePlanner.RecipeSelect
         }
 
         /// <summary>
+        /// 要求素材リストに表示
+        /// </summary>
+        /// <param name="materials">表示する要求素材のリスト</param>
+        public void SetRequiredMaterialsToPanel(IReadOnlyList<string[]> materials)
+        {
+            Grid[] requiredGrids = {
+                Panel_Required1,
+                Panel_Required2,
+                Panel_Required3,
+                Panel_Required4
+            };
+
+            TextBlock[] requiredTextNames = {
+                TextBlock_RequiredName1,
+                TextBlock_RequiredName2,
+                TextBlock_RequiredName3,
+                TextBlock_RequiredName4,
+            };
+
+            TextBlock[] requiredTextUnitNums = {
+                TextBlock_UnitRequiredNum1,
+                TextBlock_UnitRequiredNum2,
+                TextBlock_UnitRequiredNum3,
+                TextBlock_UnitRequiredNum4,
+            };
+
+            TextBlock[] requiredTextActualNums = {
+                TextBlock_ActualRequiredNum1,
+                TextBlock_ActualRequiredNum2,
+                TextBlock_ActualRequiredNum3,
+                TextBlock_ActualRequiredNum4,
+            };
+
+            // 一旦全非表示
+            foreach (Grid grid in requiredGrids)
+            {
+                grid.Visibility = Visibility.Hidden;
+            }
+
+            // 要求素材のリストから表示させる
+            int i = 0;
+            foreach (string[] material in materials)
+            {
+                requiredGrids[i].Visibility = Visibility.Visible;
+                requiredTextNames[i].Text = material[0];
+                requiredTextUnitNums[i].Text = material[1];
+                requiredTextActualNums[i].Text = material[2];
+                i++;
+            }
+        }
+
+        /// <summary>
         /// 建物のリストをコンボボックスに入れる
         /// </summary>
         /// <param name="buildings">建物のリスト データベースからとったまま</param>
@@ -127,7 +183,7 @@ namespace SatisfactoryLinePlanner.RecipeSelect
         /// <param name="flag">どっちか</param>
         public void ChangeVisibiilityRadios(int flag)
         {
-            if(flag == 1)
+            if (flag == 1)
             {
                 PurityGroup.Visibility = Visibility.Visible;
             }
@@ -140,6 +196,30 @@ namespace SatisfactoryLinePlanner.RecipeSelect
         public void ShowMessageInvalidNumberOfProduction()
         {
             MessageBox.Show(this, "レシピの設定に不足があるか無効です。\n・レシピは選択しましたか？\n・生産数が0以下になっていませんか？\n・生産数が少なすぎませんか？", "レシピを追加できません", MessageBoxButton.OK, MessageBoxImage.Question);
+        }
+
+        public void BorderAttentionOnRecipeSelect(bool flag)
+        {
+            if(flag)
+            {
+                Combobox_Recipe.BorderBrush = Brushes.Red;
+            }
+            else
+            {
+                Combobox_Recipe.BorderBrush = Brushes.White;
+            }
+        }
+
+        public void BorderAttentionOnNumberOfProduction(bool flag)
+        {
+            if (flag)
+            {
+                TextBox_RequiredNumberOfProduction.BorderBrush = Brushes.Red;
+            }
+            else
+            {
+                TextBox_RequiredNumberOfProduction.BorderBrush = Brushes.White;
+            }
         }
     }
 }

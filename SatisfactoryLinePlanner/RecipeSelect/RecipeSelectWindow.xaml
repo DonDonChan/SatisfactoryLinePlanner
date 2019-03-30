@@ -4,243 +4,448 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SatisfactoryLinePlanner.RecipeSelect"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="RecipeSelectWindow" Height="300" Width="300">
+        Title="RecipeSelectWindow" Height="600" Width="600" MinHeight="600" MinWidth="600"
+        WindowStyle="None" AllowsTransparency="True" Background="Transparent" ResizeMode="CanResize">
 
-    <Grid Background="#cccccc">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="0.6*"/>
-        </Grid.RowDefinitions>
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/NegativeButtonStyle.xaml"/>
+                <ResourceDictionary Source="/Styles/PositiveButtonStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
 
-        <Grid Grid.Row="0">
+    <WindowChrome.WindowChrome>
+        <WindowChrome ResizeBorderThickness="1"/>
+    </WindowChrome.WindowChrome>
+
+    <Border x:Name="WindowBorder" BorderBrush="#33aadd" Background="#FF2D2D30"
+            BorderThickness="0" Margin="10">
+        <Border.Effect>
+            <DropShadowEffect ShadowDepth="0" BlurRadius="10" 
+                              Color="#444444" />
+        </Border.Effect>
+
+        <Grid Background="#222222">
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
+                <RowDefinition Height="1"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="1"/>
             </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1"/>
+            </Grid.ColumnDefinitions>
 
-            <Grid Grid.Row="0">
-                <TextBlock Text="レシピ" FontSize="13" FontWeight="Bold" Margin="20, 5, 5, 0"/>
+            <!-- 左上 -->
+            <Grid Grid.Row="0" Grid.Column="0">
+                <TextBlock Grid.Column="0" Background="#33aadd"/>
             </Grid>
 
-            <Grid Grid.Row="1">
+            <!-- 上 -->
+            <Grid Grid.Row="0" Grid.Column="1">
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5"/>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5"/>
                 </Grid.ColumnDefinitions>
 
-                <Grid Grid.Column="0" Margin="5, 0, 5, 5" VerticalAlignment="Center">
-                    <ComboBox x:Name="Combobox_Recipe" BorderBrush="#555555" BorderThickness="0, 0, 0, 1"/>
-                </Grid>
-
-                <Grid Grid.Column="1" Margin="5, 0, 5, 5" VerticalAlignment="Center">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="2.5*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Grid Grid.Column="0">
-                        <TextBox x:Name="TextBox_RequiredNumberOfProduction" Background="#cccccc" BorderBrush="#555555" BorderThickness="0, 0, 0, 1" TextAlignment="Right" FontSize="12"/>
-                    </Grid>
-                    <Grid Grid.Column="1" Margin="3, 0, 0, 0">
-                        <TextBlock Text="個/分"/>
-                    </Grid>
-                </Grid>
-            </Grid>
-        </Grid>
-
-        <Grid Grid.Row="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-
-            <Grid Grid.Row="0">
-                <TextBlock Text="施設" FontSize="13" FontWeight="Bold" Margin="20, 5, 5, 0"/>
+                <TextBlock Grid.Column="0" Background="#33aadd"/>
+                <TextBlock Grid.Column="1" VerticalAlignment="Top" Background="#33aadd"/>
+                <TextBlock Grid.Column="2" Background="#33aadd"/>
             </Grid>
 
-            <Grid Grid.Row="1">
+            <!-- 右上 -->
+            <Grid Grid.Row="0" Grid.Column="2">
+                <TextBlock Background="#33aadd"/>
+            </Grid>
+
+            <!-- 左 -->
+            <Grid Grid.Row="1" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="5"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Background="#33aadd"/>
+                <TextBlock Grid.Row="1" Background="#33aadd"/>
+                <TextBlock Grid.Row="2" Background="#33aadd"/>
+            </Grid>
+
+            <!-- 右 -->
+            <Grid Grid.Row="1" Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="5"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Background="#33aadd"/>
+                <TextBlock Grid.Row="1" Background="#33aadd"/>
+                <TextBlock Grid.Row="2" WindowChrome.ResizeGripDirection="BottomRight" Background="#33aadd"/>
+            </Grid>
+
+            <!-- 左下 -->
+            <Grid Grid.Row="2" Grid.Column="0">
+                <TextBlock Background="#33aadd"/>
+            </Grid>
+
+            <!-- 下 -->
+            <Grid Grid.Row="2" Grid.Column="1">
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5"/>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5"/>
                 </Grid.ColumnDefinitions>
 
-                <Grid Grid.Column="0" Margin="5, 0, 5, 5" VerticalAlignment="Center">
+                <TextBlock Grid.Column="0" Background="#33aadd"/>
+                <TextBlock Grid.Column="1" Background="#33aadd"/>
+                <TextBlock Grid.Column="2" WindowChrome.ResizeGripDirection="BottomRight" Background="#33aadd"/>
+            </Grid>
+
+            <!-- 右下 -->
+            <Grid Grid.Row="2" Grid.Column="2">
+                <TextBlock WindowChrome.ResizeGripDirection="BottomRight" Background="#33aadd"/>
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="1" Background="#222222">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" Margin="10, 20, 10 , 0">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
                     <Grid Grid.Row="0">
-                        <ComboBox x:Name="Combobox_Building" BorderBrush="#555555" BorderThickness="0, 0, 0, 1"/>
-                    </Grid>
-
-                    <Grid Grid.Row="1">
-                        <WrapPanel x:Name="PurityGroup" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <RadioButton x:Name="Radio_Impure" GroupName="Purity"/>
-                            <TextBlock Text="低純度" FontSize="8" Margin="0, 0, 5, 0"/>
-                            <RadioButton x:Name="Radio_Normal" GroupName="Purity" IsChecked="True"/>
-                            <TextBlock Text="普通" FontSize="8"  Margin="0, 0, 5, 0"/>
-                            <RadioButton x:Name="Radio_Pure" GroupName="Purity"/>
-                            <TextBlock Text="高純度" FontSize="8"/>
-                        </WrapPanel>
-                    </Grid>
-                </Grid>
-
-                <Grid Grid.Column="1" Margin="5, 0, 5, 5">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-
-                    <Grid Grid.Row="0">
-                        <Slider x:Name="Slider_Overclock" Value="100" Maximum="250" Margin="-5, 0, 15, 0" Minimum="1"/>
+                        <TextBlock Text="レシピ選択" FontSize="13" FontWeight="Bold" Foreground="White" Margin="5" Opacity="0.8"/>
                     </Grid>
 
                     <Grid Grid.Row="1">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="6*"/>
+                            <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Grid Grid.Column="0">
-                            <TextBox x:Name="TextBox_OverclockNumber" Background="#cccccc" BorderBrush="#555555" BorderThickness="0, 0, 0, 1" TextAlignment="Right" FontSize="12" Text="100"/>
+                        <Grid Grid.Column="0" Margin="5, 0, 10, 5" VerticalAlignment="Center">
+                            <ComboBox x:Name="Combobox_Recipe" materialDesign:HintAssist.Hint="レシピ" materialDesign:HintAssist.HintOpacity="1" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Foreground="White" Margin="3" BorderBrush="White" Opacity="0.8">
+                                <ComboBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <VirtualizingStackPanel />
+                                    </ItemsPanelTemplate>
+                                </ComboBox.ItemsPanel>
+                            </ComboBox>
                         </Grid>
-                        <Grid Grid.Column="1" Margin="3, 0, 0, 0">
-                            <TextBlock Text="%"/>
+
+                        <Grid Grid.Column="1" Margin="10, 0, 5, 5" VerticalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="6*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0">
+                                <TextBox x:Name="TextBox_RequiredNumberOfProduction" materialDesign:HintAssist.Hint="分間生産数" materialDesign:HintAssist.HintOpacity="1" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="White" BorderBrush="White" Opacity="0.8" TextAlignment="Right"/>
+                            </Grid>
+                            <Grid Grid.Column="1" Margin="3, 0, 0, 0">
+                                <TextBlock Text="個/分" VerticalAlignment="Bottom" Foreground="White" Opacity="0.8"/>
+                            </Grid>
                         </Grid>
                     </Grid>
                 </Grid>
+                <Grid Grid.Row="1" Margin="10, 0, 10, 10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <TextBlock Text="要求素材（単位要求数/実分間要求数）" FontSize="10" FontWeight="Bold" Foreground="White" Margin="5" Opacity="0.8"/>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid x:Name="Panel_Required1" Grid.Row="0" Grid.Column="0" Margin="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0" VerticalAlignment="Center">
+                                <TextBlock x:Name="TextBlock_RequiredName1" FontSize="10" Foreground="White" Opacity="0.8" VerticalAlignment="Center" TextAlignment="Center"/>
+                            </Grid>
+                            <Grid Grid.Column="1" VerticalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock x:Name="TextBlock_UnitRequiredNum1" Grid.Column="0" FontSize="10" Foreground="White" Opacity="0.8" VerticalAlignment="Center" TextAlignment="Right"/>
+                                <TextBlock Grid.Column="1" Text="個" FontSize="10" Foreground="White" Margin="5, 0, 0, 0" Opacity="0.8" VerticalAlignment="Center" TextAlignment="Right"/>
+                            </Grid>
+                            <Grid Grid.Column="2" VerticalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock x:Name="TextBlock_ActualRequiredNum1" Grid.Column="0" FontSize="10" Foreground="White" Opacity="0.8" VerticalAlignment="Center" TextAlignment="Right"/>
+                                <TextBlock Grid.Column="1" Text="個/分" FontSize="10" Foreground="White" Margin="5, 0, 0, 0" Opacity="0.8" VerticalAlignment="Center" TextAlignment="Right"/>
+                            </Grid>
+                        </Grid>
+
+                        <Grid x:Name="Panel_Required2" Grid.Row="0" Grid.Column="1" Margin="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0" VerticalAlignment="Center">
+                                <TextBlock x:Name="TextBlock_RequiredName2" FontSize="10" Foreground="White" Opacity="0.8" VerticalAlignment="Center" TextAlignment="Center"/>
+                            </Grid>
+                            <Grid Grid.Column="1" VerticalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock x:Name="TextBlock_UnitRequiredNum2" Grid.Column="0" FontSize="10" Foreground="White" Opacity="0.8" VerticalAlignment="Center" TextAlignment="Right"/>
+                                <TextBlock Grid.Column="1" Text="個" FontSize="10" Foreground="White" Margin="5, 0, 0, 0" Opacity="0.8" VerticalAlignment="Center" TextAlignment="Right"/>
+                            </Grid>
+                            <Grid Grid.Column="2" VerticalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock x:Name="TextBlock_ActualRequiredNum2" Grid.Column="0" FontSize="10" Foreground="White" Opacity="0.8" VerticalAlignment="Center" TextAlignment="Right"/>
+                                <TextBlock Grid.Column="1" Text="個/分" FontSize="10" Foreground="White" Margin="5, 0, 0, 0" Opacity="0.8" VerticalAlignment="Center" TextAlignment="Right"/>
+                            </Grid>
+                        </Grid>
+
+                        <Grid x:Name="Panel_Required3" Grid.Row="1" Grid.Column="0" Margin="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0" VerticalAlignment="Center">
+                                <TextBlock x:Name="TextBlock_RequiredName3" FontSize="10" Foreground="White" Opacity="0.8" VerticalAlignment="Center" TextAlignment="Center"/>
+                            </Grid>
+                            <Grid Grid.Column="1" VerticalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock x:Name="TextBlock_UnitRequiredNum3" Grid.Column="0" FontSize="10" Foreground="White" Opacity="0.8" VerticalAlignment="Center" TextAlignment="Right"/>
+                                <TextBlock Grid.Column="1" Text="個" FontSize="10" Foreground="White" Margin="5, 0, 0, 0" Opacity="0.8" VerticalAlignment="Center" TextAlignment="Right"/>
+                            </Grid>
+                            <Grid Grid.Column="2" VerticalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock x:Name="TextBlock_ActualRequiredNum3" Grid.Column="0" FontSize="10" Foreground="White" Opacity="0.8" VerticalAlignment="Center" TextAlignment="Right"/>
+                                <TextBlock Grid.Column="1" Text="個/分" FontSize="10" Foreground="White" Margin="5, 0, 0, 0" Opacity="0.8" VerticalAlignment="Center" TextAlignment="Right"/>
+                            </Grid>
+                        </Grid>
+
+                        <Grid x:Name="Panel_Required4" Grid.Row="1" Grid.Column="1" Margin="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0" VerticalAlignment="Center">
+                                <TextBlock x:Name="TextBlock_RequiredName4" FontSize="10" Foreground="White" Opacity="0.8" VerticalAlignment="Center" TextAlignment="Center"/>
+                            </Grid>
+                            <Grid Grid.Column="1" VerticalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock x:Name="TextBlock_UnitRequiredNum4" Grid.Column="0" FontSize="10" Foreground="White" Opacity="0.8" VerticalAlignment="Center" TextAlignment="Right"/>
+                                <TextBlock Grid.Column="1" Text="個" FontSize="10" Foreground="White" Margin="5, 0, 0, 0" Opacity="0.8" VerticalAlignment="Center" TextAlignment="Right"/>
+                            </Grid>
+                            <Grid Grid.Column="2" VerticalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock x:Name="TextBlock_ActualRequiredNum4" Grid.Column="0" FontSize="10" Foreground="White" Opacity="0.8" VerticalAlignment="Center" TextAlignment="Right"/>
+                                <TextBlock Grid.Column="1" Text="個/分" FontSize="10" Foreground="White" Margin="5, 0, 0, 0" Opacity="0.8" VerticalAlignment="Center" TextAlignment="Right"/>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="2" Margin="10, 20, 10, 10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <TextBlock Text="施設選択" FontSize="13" FontWeight="Bold" Foreground="White" Margin="5" Opacity="0.8"/>
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0" Margin="5, 0, 10, 5" VerticalAlignment="Center">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid Grid.Row="0">
+                                <ComboBox x:Name="Combobox_Building" materialDesign:HintAssist.Hint="施設" materialDesign:HintAssist.HintOpacity="1" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Foreground="White" Margin="3" BorderBrush="White" Opacity="0.8">
+                                    <ComboBox.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <VirtualizingStackPanel />
+                                        </ItemsPanelTemplate>
+                                    </ComboBox.ItemsPanel>
+                                </ComboBox>
+                            </Grid>
+
+                            <Grid Grid.Row="1" Margin="0, 5, 0, 0">
+                                <WrapPanel x:Name="PurityGroup" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <RadioButton x:Name="Radio_Impure" GroupName="Purity" Style="{StaticResource MaterialDesignRadioButton}" Content="低純度" Foreground="White" Background="White" BorderBrush="White" Opacity="0.8"/>
+                                    <!--<TextBlock Text="低純度" FontSize="10" Margin="0, 0, 5, 0" Foreground="White" Opacity="0.8" VerticalAlignment="Center"/>-->
+                                    <RadioButton x:Name="Radio_Normal" GroupName="Purity" IsChecked="True" Style="{StaticResource MaterialDesignRadioButton}" Content="普通" Foreground="White" Background="White" Opacity="0.8" Margin="20, 0"/>
+                                    <!--<TextBlock Text="普通" FontSize="10"  Margin="0, 0, 5, 0" Foreground="White" Opacity="0.8" VerticalAlignment="Center"/>-->
+                                    <RadioButton x:Name="Radio_Pure" GroupName="Purity" Style="{StaticResource MaterialDesignRadioButton}" Content="高純度" Foreground="White" Background="White" Opacity="0.8"/>
+                                    <!--<TextBlock Text="高純度" FontSize="10" Foreground="White" Opacity="0.8" VerticalAlignment="Center"/>-->
+                                </WrapPanel>
+                            </Grid>
+                        </Grid>
+
+                        <Grid Grid.Column="1" Margin="10, 0, 5, 5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid Grid.Row="0">
+                                <Slider x:Name="Slider_Overclock" TickFrequency="50" TickPlacement="Both" Value="100" Maximum="250" Margin="-5, 0, 15, 0" Minimum="1" Foreground="White" Opacity="0.8"/>
+                            </Grid>
+
+                            <Grid Grid.Row="1" Margin="0, 5, 0, 0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="6*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid Grid.Column="0">
+                                    <TextBox x:Name="TextBox_OverclockNumber" Text="100" materialDesign:HintAssist.Hint="オーバークロック(%)" materialDesign:HintAssist.HintOpacity="1" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="White" BorderBrush="White" Opacity="0.8" TextAlignment="Right"/>
+                                </Grid>
+                                <Grid Grid.Column="1" Margin="3, 0, 0, 0">
+                                    <TextBlock Text="%" VerticalAlignment="Bottom" Foreground="White" Opacity="0.8"/>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="3" Margin="10, 20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="10, 5, 10, 5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0" Text="単位生産時間" FontSize="10" Foreground="White" Opacity="0.8"/>
+                        <TextBlock x:Name="TextBlock_UnitProductionTime" Grid.Column="1" FontSize="10" Foreground="White" Opacity="0.8" TextAlignment="Right"/>
+                        <TextBlock Grid.Column="2" Text="秒/個" FontSize="10" Foreground="White" Opacity="0.8" Margin="5, 0, 0, 0"/>
+                    </Grid>
+
+                    <Grid Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="10, 5, 10, 5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0" Text="単位生産個数" FontSize="10" Foreground="White" Opacity="0.8"/>
+                        <TextBlock x:Name="TextBlock_UnitProductionPieces" Grid.Column="1" FontSize="10" Foreground="White" Opacity="0.8" TextAlignment="Right"/>
+                        <TextBlock Grid.Column="2" Text="個/回" FontSize="10" Foreground="White" Opacity="0.8" Margin="5, 0, 0, 0"/>
+                    </Grid>
+
+                    <Grid Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Margin="10, 5, 10, 5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0" Text="分間生産個数（１台）" FontSize="10" Foreground="White" Opacity="0.8"/>
+                        <TextBlock x:Name="TextBlock_NumberOfProductionPerMin" Grid.Column="1" FontSize="10" Foreground="White" Opacity="0.8"  TextAlignment="Right"/>
+                        <TextBlock Grid.Column="2" Text="個/分" FontSize="10" Foreground="White" Opacity="0.8" Margin="5, 0, 0, 0"/>
+                    </Grid>
+
+                    <Grid Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="10, 5, 10, 5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0" Text="必要施設台数" FontSize="10" Foreground="White" Opacity="0.8"/>
+                        <TextBlock x:Name="TextBlock_RequiredNumberOfBuilding" Grid.Column="1" FontSize="10" Foreground="White" Opacity="0.8" TextAlignment="Right"/>
+                        <TextBlock Grid.Column="2" Text="　 台" FontSize="10" Foreground="White" Opacity="0.8" Margin="5, 0, 0, 0"/>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="4" Margin="10, 20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="0.5*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0" VerticalAlignment="Center">
+                        <Button x:Name="Button_Confirm" Margin="10, 0, 0, 0" Style="{StaticResource MaterialDesignFlatButton}">
+                            <TextBlock Text="確　定"/>
+                        </Button>
+                    </Grid>
+
+                    <Grid Grid.Column="2" VerticalAlignment="Center">
+                        <Button x:Name="Button_Cancel" Margin="0, 0, 10, 0"  Style="{StaticResource MaterialDesignFlatButton}">
+                            <TextBlock Text="キャンセル" Foreground="#ff4444"/>
+                        </Button>
+                    </Grid>
+                </Grid>
             </Grid>
         </Grid>
-
-        <Grid Grid.Row="2">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-            <Grid Grid.Row="0" Grid.Column="0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-
-                <Grid Grid.Row="0" Margin="5, 5, 0, 0">
-                    <TextBlock Text="単位生産時間" FontSize="10"/>
-                </Grid>
-
-                <Grid Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0, 0, 10, 0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Grid Grid.Column="0">
-                        <TextBlock x:Name="TextBlock_UnitProductionTime" FontSize="10"/>
-                    </Grid>
-                    <Grid Grid.Column="1">
-                        <TextBlock Text="秒" FontSize="10"/>
-                    </Grid>
-                </Grid>
-            </Grid>
-
-            <Grid Grid.Row="1" Grid.Column="0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-
-                <Grid Grid.Row="0" Margin="5, 5, 0, 0">
-                    <TextBlock Text="単位生産個数" FontSize="10"/>
-                </Grid>
-
-                <Grid Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0, 0, 10, 0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Grid Grid.Column="0">
-                        <TextBlock x:Name="TextBlock_UnitProductionPieces" FontSize="10"/>
-                    </Grid>
-                    <Grid Grid.Column="1">
-                        <TextBlock Text="個" FontSize="10"/>
-                    </Grid>
-                </Grid>
-            </Grid>
-
-            <Grid Grid.Row="0" Grid.Column="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-
-                <Grid Grid.Row="0" Margin="5, 5, 0, 0">
-                    <TextBlock Text="分間生産個数（１台）" FontSize="10"/>
-                </Grid>
-
-                <Grid Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0, 0, 10, 0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Grid Grid.Column="0">
-                        <TextBlock x:Name="TextBlock_NumberOfProductionPerMin" FontSize="10"/>
-                    </Grid>
-                    <Grid Grid.Column="1">
-                        <TextBlock Text="個" FontSize="10"/>
-                    </Grid>
-                </Grid>
-            </Grid>
-
-            <Grid Grid.Row="1" Grid.Column="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-
-                <Grid Grid.Row="0" Margin="5, 5, 0, 0">
-                    <TextBlock Text="必要施設台数" FontSize="10"/>
-                </Grid>
-
-                <Grid Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0, 0, 10, 0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Grid Grid.Column="0">
-                        <TextBlock x:Name="TextBlock_RequiredNumberOfBuilding" FontSize="10"/>
-                    </Grid>
-                    <Grid Grid.Column="1">
-                        <TextBlock Text="台" FontSize="10"/>
-                    </Grid>
-                </Grid>
-            </Grid>
-        </Grid>
-
-        <Grid Grid.Row="3">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="0.5*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-            <Grid Grid.Column="0" VerticalAlignment="Center">
-                <Button x:Name="Button_Confirm" Content="確定" Background="#66ff88" Margin="10, 0, 0, 0"/>
-            </Grid>
-
-            <Grid Grid.Column="2" VerticalAlignment="Center">
-                <Button x:Name="Button_Cancel" Content="キャンセル" Background="#ff4444" Margin="0, 0, 10, 0"/>
-            </Grid>
-        </Grid>
-    </Grid>
+    </Border>
 </Window>

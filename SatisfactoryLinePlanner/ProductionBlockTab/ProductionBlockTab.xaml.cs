@@ -37,9 +37,9 @@ namespace SatisfactoryLinePlanner.ProductionBlockTab
         /// 生産物リストにアイテムを追加
         /// </summary>
         /// <param name="materialWithNumber">追加するやつのリスト</param>
-        public void AddMaterialsToProductionListPanel(IReadOnlyList<MaterialWithNum> materialWithNumber)
+        public void AddMaterialsToProductionListPanel(IReadOnlyList<MaterialWithNumOnButton> materialWithNumber)
         {
-            foreach(MaterialWithNum item in materialWithNumber)
+            foreach(MaterialWithNumOnButton item in materialWithNumber)
             {
                 Panel_ProductionMaterialsList.Children.Add(item);
             }

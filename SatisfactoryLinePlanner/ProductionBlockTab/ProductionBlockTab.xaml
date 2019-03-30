@@ -4,14 +4,24 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SatisfactoryLinePlanner.ProductionBlockTab"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d">
-    
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/PositiveButtonStyle.xaml"/>
+                <ResourceDictionary Source="/Styles/NegativeButtonStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <Grid x:Name="ButtonGrid" Grid.Row="0">
@@ -21,8 +31,12 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Button x:Name="Button_AddRcipe" Content="レシピ追加" Grid.Column="0" Background="#66ff88"/>
-            <Button x:Name="Button_ClearRecipes" Content="全消去" Grid.Column="2" Background="#ff4444"/>
+            <Button x:Name="Button_AddRcipe" Grid.Column="0" Margin="20, 5, 0, 5" Style="{StaticResource MaterialDesignRaisedButton}">
+                <TextBlock Text="レシピ追加"/>
+            </Button>
+            <Button x:Name="Button_ClearRecipes" Grid.Column="2" Margin="5, 5, 20, 5" Style="{StaticResource MaterialDesignRaisedLightButton}" Background="#ff4444" BorderBrush="#cc3333">
+                <TextBlock Text="全消去"/>
+            </Button>
         </Grid>
 
         <Grid Grid.Row="1">
@@ -32,14 +46,14 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0">
+            <Grid Grid.Row="0" Margin="0, 5, 0, 0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="0">
-                    <TextBlock Text="生産素材" FontWeight="Bold"/>
+                    <TextBlock Text="生産素材" FontSize="15" FontWeight="Bold" Foreground="White" Margin="10, 3, 3, 3" Opacity="0.6"/>
                 </Grid>
 
                 <Grid Grid.Row="1">
@@ -47,7 +61,7 @@
                 </Grid>
             </Grid>
 
-            <GridSplitter Grid.Row="1" Height="3" Background="#aaaaaa" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+            <GridSplitter Grid.Row="1" Height="0.5" Background="#aaaaaa" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
 
             <Grid Grid.Row="2">
                 <Grid.RowDefinitions>
@@ -56,7 +70,7 @@
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="0">
-                    <TextBlock Text="要求素材" FontWeight="Bold"/>
+                    <TextBlock Text="要求素材" FontSize="15" FontWeight="Bold" Foreground="White" Margin="10, 3, 3, 3" Opacity="0.6"/>
                 </Grid>
 
                 <Grid Grid.Row="1">
@@ -65,7 +79,7 @@
             </Grid>
         </Grid>
 
-        <GridSplitter Grid.Row="2" Height="3" Background="#aaaaaa" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+        <GridSplitter Grid.Row="2" Height="0.5" Background="#aaaaaa" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
 
         <Grid Grid.Row="3">
             <Grid.RowDefinitions>
@@ -75,7 +89,7 @@
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0">
-                <TextBlock Text="生産リスト" FontWeight="Bold"/>
+                <TextBlock Text="生産リスト" FontSize="15" FontWeight="Bold" Foreground="White" Margin="10, 3, 3, 3" Opacity="0.6"/>
             </Grid>
 
             <Grid Grid.Row="1">
@@ -97,39 +111,45 @@
                         </Grid.ColumnDefinitions>
 
                         <Grid Grid.Column="0">
-                            <Button Content="↑" Background="#88ccff" Visibility="Hidden"/>
+                            <Button x:Name="Button_UpItem" Style="{StaticResource MaterialDesignRaisedLightButton}" Visibility="Hidden">
+                                <materialDesign:PackIcon Kind="ArrowUpBold" />
+                            </Button>
                         </Grid>
 
                         <Grid Grid.Column="1" Margin="3, 0 ,0 ,0">
-                            <Button Content="↓" Background="#88ccff" Visibility="Hidden"/>
+                            <Button x:Name="Button_DownItem" Style="{StaticResource MaterialDesignRaisedLightButton}" Visibility="Hidden">
+                                <materialDesign:PackIcon Kind="ArrowDownBold" />
+                            </Button>
                         </Grid>
 
                         <Grid Grid.Column="2">
-                            <TextBlock Text="レシピ名" TextAlignment="Center"/>
+                            <TextBlock Text="レシピ名" TextAlignment="Center" VerticalAlignment="Center" FontSize="13" Foreground="White" Opacity="0.6"/>
                         </Grid>
 
                         <Grid Grid.Column="3">
-                            <TextBlock Text="消費電力" TextAlignment="Center"/>
+                            <TextBlock Text="消費電力" TextAlignment="Center" VerticalAlignment="Center" FontSize="13" Foreground="White" Opacity="0.6"/>
                         </Grid>
 
                         <Grid Grid.Column="4">
-                            <TextBlock Text="使用施設" TextAlignment="Center"/>
+                            <TextBlock Text="使用施設" TextAlignment="Center" VerticalAlignment="Center" FontSize="13" Foreground="White" Opacity="0.6"/>
                         </Grid>
 
                         <Grid Grid.Column="5">
-                            <TextBlock Text="OC" TextAlignment="Center"/>
+                            <TextBlock Text="OC" TextAlignment="Center" VerticalAlignment="Center" FontSize="13" Foreground="White" Opacity="0.6"/>
                         </Grid>
 
                         <Grid Grid.Column="6">
-                            <TextBlock Text="生産品" TextAlignment="Center"/>
+                            <TextBlock Text="生産品" TextAlignment="Center" VerticalAlignment="Center" FontSize="13" Foreground="White" Opacity="0.6"/>
                         </Grid>
 
                         <Grid Grid.Column="7">
-                            <TextBlock Text="要求素材" TextAlignment="Center"/>
+                            <TextBlock Text="要求素材" TextAlignment="Center" VerticalAlignment="Center" FontSize="13" Foreground="White" Opacity="0.6"/>
                         </Grid>
 
                         <Grid Grid.Column="11">
-                            <Button Content="X" Background="#ff4444" Visibility="Hidden" Width="15"/>
+                            <Button x:Name="Button_DeleteItem" Style="{StaticResource MaterialDesignRaisedLightButton}" Background="#ff4444" BorderBrush="#cc3333" Visibility="Hidden">
+                                <materialDesign:PackIcon Kind="Close" />
+                            </Button>
                         </Grid>
                     </Grid>
                 </Border>
