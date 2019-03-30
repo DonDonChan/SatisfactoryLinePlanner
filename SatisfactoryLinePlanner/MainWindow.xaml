@@ -5,8 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SatisfactoryLinePlanner"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        mc:Ignorable="d"
-        Title="SatisfactoryLinePlanner v0.002" Height="700" Width="1000"
+        mc:Ignorable="d" Height="700" Width="1000"
         MinHeight="300" MinWidth="400"
         WindowStyle="None" AllowsTransparency="True" Background="Transparent" >
 

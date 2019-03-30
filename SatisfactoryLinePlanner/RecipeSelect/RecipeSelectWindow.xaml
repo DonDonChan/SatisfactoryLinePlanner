@@ -9,15 +9,6 @@
         Title="RecipeSelectWindow" Height="600" Width="600" MinHeight="600" MinWidth="600"
         WindowStyle="None" AllowsTransparency="True" Background="Transparent" ResizeMode="CanResize">
 
-    <Window.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Styles/NegativeButtonStyle.xaml"/>
-                <ResourceDictionary Source="/Styles/PositiveButtonStyle.xaml"/>
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Window.Resources>
-
     <WindowChrome.WindowChrome>
         <WindowChrome ResizeBorderThickness="1"/>
     </WindowChrome.WindowChrome>
